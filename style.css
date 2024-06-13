@@ -1,0 +1,748 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    height: 80px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 253, 244, 0.671);
+    z-index: 1;
+}
+
+.kolorzmienianie {
+    background: rgb(79, 77, 76);
+    background: radial-gradient(circle, rgba(79, 77, 76, 1) 0%, rgba(42, 37, 38, 1) 92%);
+}
+
+
+.navbar ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+}
+
+.navbar ul li {
+    margin-right: 25px;
+    list-style-type: none;
+
+}
+
+.navlink {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    opacity: 60%;
+    transition: opacity 1s, transform 0.7s;
+    display: inline-block;
+
+}
+
+.navlink:hover {
+    opacity: 100%;
+    transform: scale(1.2);
+}
+
+.film {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+}
+
+header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.desc {
+    position: absolute;
+    bottom: 100px;
+    right: 80px;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: white;
+
+}
+
+.desc h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.linkdesc {
+    background-color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-left: 80px;
+    display: inline-block;
+    transition: opacity 0.5s, box-shadow 0.5s, transform 0.5s;
+    opacity: 80%;
+}
+
+.linkdesc:hover {
+    transform: scale(1.1);
+    background-color: white;
+    opacity: 100%;
+    box-shadow: 0px 0px 10px 5px white;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.champ {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.player {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+section {
+    width: 20%;
+}
+
+.nick {
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    font-size: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pozycja {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    height: 135px;
+    transform: translateX(-50%);
+
+}
+
+.ranga {
+    transition: transform 2s;
+    position: absolute;
+    bottom: -320px;
+    left: 50%;
+    transform: translateX(-50%);
+    width:280px;
+}
+
+.player:hover .ranga {
+    transform: translate(-50%, -700px);
+}
+
+.player:hover .champ {
+    filter: brightness(60%);
+    transform: scale(1.1);
+}
+
+.player:hover {
+    cursor: pointer;
+}
+
+.loading {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-color: grey;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+}
+
+.logono {
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    animation: miganie 2s infinite;
+}
+
+@keyframes miganie {
+    0% {}
+
+    50% {
+        filter: brightness(0);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.znikanie {
+    animation: znikanie 1s forwards;
+}
+
+@keyframes znikanie {
+    0% {}
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.nick h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 5px;
+    background-color: white;
+}
+
+.nick h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 5px;
+    background-color: white;
+}
+
+.nick h2 {
+    position: relative;
+    padding: 0px 0px 5px 0px;
+}
+
+.terminarz {
+    background-color: #342E2E;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.terminarz h1 {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.terminarz h2 {
+    color: white;
+    font-size: 45px;
+    margin-top: 0px;
+    margin-left: 120px;
+    margin-bottom: -10px;
+}
+
+.mecz {
+    background-color: #C4C4C4;
+    height: 150px;
+    width: 70vw;
+    margin-top: 35px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+.listameczow {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+
+}
+
+.sekcjamecz {
+    width: auto;
+}
+
+.mecz h3 {
+    font-size: 50px;
+    display: inline-block;
+    margin: 0;
+}
+
+.mecz span {
+    height: 5px;
+    width: 100px;
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.stream {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 5px;
+    opacity: .8;
+    transition: 0.2s;
+
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.stream:hover {
+    transform: scale(1.1);
+    opacity: 100%;
+    box-shadow: 0px 0px 10px 5px black;
+}
+
+.enemy {
+    margin-left: 50px;
+}
+
+.kontaktowanko {
+    background-image: url("img/backmf.jpg");
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.kontakt {
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    justify-content: space-around;
+    border-radius: 10px;
+    top: 200px;
+    box-shadow: 0 0 20px 5px rgb(179, 176, 176);
+
+}
+
+.kontaktowanko h1 {
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 80px;
+    text-shadow: 4px 2px 2px black;
+
+}
+
+label {
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#nick {
+    width: 300px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    transition: box-shadow 1s;
+    resize: none;
+    text-align: center;
+
+
+}
+
+#wiadomosc {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    transition: box-shadow 1s;
+    resize: none;
+    width: 50vw;
+
+}
+
+.wyslij {
+    color: white;
+    background-color: black;
+    padding: 10px 30px;
+    font-size: 40px;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 9px;
+    transition: 0.5s;
+    opacity: 100%;
+    border: none;
+    margin-top: 30px;
+
+}
+
+::placeholder {
+    text-align: center;
+    transition: opacity 0.5s;
+    color: white;
+}
+
+#nick:focus::placeholder {
+    opacity: 0;
+}
+
+#wiadomosc:focus::placeholder {
+    opacity: 0;
+}
+
+#nick:focus {
+    box-shadow: 0 0 20px 5px black;
+}
+
+#wiadomosc:focus {
+    box-shadow: 0 0 20px 5px black;
+}
+
+.wyslij:hover {
+    cursor: pointer;
+    opacity: 100%;
+    box-shadow: 0px 0px 10px 5px rgb(53, 52, 52);
+}
+
+.footer {
+    background-color: #C4C4C4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    padding: 15px 0px;
+
+}
+
+.footer p {
+    color: black;
+    font-size: 40px;
+    margin: 0;
+}
+
+
+.dd {
+    margin-right: 30px;
+}
+
+.fab {
+    font-size: 50px;
+    margin-right: 35px;
+    color: black;
+    transition: color 0.5s;
+
+
+}
+
+.fa-twitch:hover {
+    color: #6441A4;
+
+}
+
+.fa-youtube:hover {
+    color: #c4302b;
+}
+
+.fa-discord:hover {
+    color: #7289da;
+
+}
+
+.fa-youtube {
+    margin: 0;
+}
+
+.klikanko {
+    transition: transform 0.5s;
+}
+
+.klikanko:hover {
+    transform: scale(1.2);
+}
+
+.hamburger {
+    right: 20px;
+    top: 15px;
+    position: fixed;
+    height: 50px;
+    width: 65px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    transition: 0.4s;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.pasek1 {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    left: 0;
+    top: calc(50% - 5px);
+    background-color: white;
+    border-radius: 15px;
+
+}
+
+.hamburger::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.hamburger::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.hamburger.vidmo {
+    transform: rotate(-90deg);
+}
+
+.hamburger.vidmo .pasek1 {
+    opacity: 0;
+}
+
+.hamburger.vidmo::before {
+    top: calc(50% - 5px);
+    transform: rotate(45deg)
+}
+
+.hamburger.vidmo::after {
+    top: calc(50% - 5px);
+    transform: rotate(-45deg)
+}
+
+.ikony a {
+    text-decoration: none;
+}
+
+@media(max-width:800px) {
+    .kontakt {
+        width: 80vw;
+    }
+}
+
+@media(max-width:550px) {
+    #nick {
+        width: 200px;
+    }
+
+    .kontaktowanko h1 {
+        font-size: 50px;
+    }
+
+    label {
+        font-size: 40px;
+        margin: 10px 0;
+    }
+}
+
+@media(max-width:750px) {
+    .przesuwanie {
+        transform: translateY(0);
+    }
+
+    ul {
+        position: fixed;
+        top: 82px;
+        width: 100vw;
+        padding: 0;
+        flex-direction: column;
+        background-color: rgb(44, 42, 42);
+        transform: translateY(-300px);
+        transition: 1s;
+    }
+
+
+    .navbar ul a {
+        width: 100%;
+        text-align: center;
+        opacity: .8;
+    }
+
+    .navbar ul li:last-child {
+        border-bottom: none;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 2px solid white;
+
+    }
+
+    .hamburger {
+        visibility: visible;
+    }
+
+    .desc {
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    .linkdesc {
+        margin: 0;
+    }
+
+    .terminarz h2 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .mecz {
+        width: 90vw;
+    }
+
+    .terminarz {
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+}
+
+@media(max-width: 1000px) {
+    .mecz span {
+        width: 50px;
+    }
+}
+
+@media(max-width: 570px) {
+    .logonolimitu {
+        height: 55px;
+    }
+
+    .enemy {
+        width: 55px;
+    }
+
+    .mecz span {
+        width: 35px;
+    }
+
+    .mecz h3 {
+        font-size: 35px;
+    }
+
+    .stream {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .mecz {
+        padding: 0px 10px;
+    }
+
+    .terminarz h1 {
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 1500px) {
+    .nick {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .ranga {
+        height: 200px;
+    }
+}
+
+@media(max-width: 1150px) {
+    .nick {
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 950px) {
+    .timek section {
+        width: 30%;
+    }
+
+    .timek {
+        justify-content: space-around;
+        background-color: #231D1D;
+    }
+
+    .player {
+        height: 70vh;
+    }
+}
+
+@media(max-width: 600px) {
+    .nick {
+        font-size: 20px;
+    }
+
+    .pozycja {
+        height: 100px;
+    }
+}
+
+@media(max-width: 500px) {
+    .nick {
+        font-size: 15px;
+    }
+}
+
+@media(max-height:600px) {
+    .ranga {
+        width: 210px;
+    }
+
+    .player:hover .ranga {
+        transform: translate(-50%, -650px);
+    }
+}
